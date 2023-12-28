@@ -1,7 +1,7 @@
 ![Alt text](image.png)
 
 
-What is Apache HTTP Server and How to Install?
+What is Apache HTTP Server and How to Install? Adjusting the Firewall + Checking your Web Server + Managing the Apache Process
 
 The Apache HTTP Server, commonly referred to as Apache, is an open-source web server software developed and maintained by the Apache Software Foundation. It is one of the most widely used web servers globally. The Apache web server plays a crucial role in serving static and dynamic content over the World Wide Web.
 
@@ -119,4 +119,3 @@ By default, Apache is configured to start automatically when the server boots. I
 ```bash
 sudo systemctl disable apache2
 ```
-
