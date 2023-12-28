@@ -51,15 +51,42 @@ Apache Web Server Installation on Ubuntu 22.04 LTS (Desktop/Server) >> PC/VB/VM/
    # If you are running a firewall (e.g., UFW), you might need to allow traffic to the Apache service. You can enable the default Apache profile for UFW:
    sudo ufw allow 'Apache'
    
+   # Allow incoming SSH connections by adding a rule to the UFW configuration:
+   sudo ufw allow ssh
+
    # If UFW is not installed, you can install it and enable it with:
    sudo apt install ufw -y
    sudo ufw enable
    
    # After enabling UFW, you may want to check the status:
    sudo ufw status
-   
+
+   # After making changes, reload UFW for the new rules to take effect:
+   sudo ufw reload
+      
+   # List the ufw application profiles by running the following:
+   sudo ufw app list
+
    # Access Apache Default Page
    # Open a web browser and navigate to `http://your_server_IP` or `http://localhost`. You should see the default Apache welcome page, indicating that Apache is successfully installed.
 
-```
+   # You can access the default Apache landing page to confirm that the software is running properly through your IP address. If you do not know your server’s IP address, you can get it a few different ways from the command line.
+   # Try writing the following at your server’s command prompt:
+   hostname -I
 
+   # Another option is to use the free icanhazip.com tool. This is a website that, when accessed, returns your machine’s public IP address as read from another location on the internet:
+   curl -4 icanhazip.com
+
+   # To stop your web server, run:
+   sudo systemctl stop apache2
+
+   # To stop and then start the service again, run:
+   sudo systemctl restart apache2
+
+   # If you are simply making configuration changes, Apache can often reload without dropping connections. To do this, use the following command:
+   sudo systemctl reload apache2
+
+   # By default, Apache is configured to start automatically when the server boots. If this is not what you want, disable this behavior by running:
+   sudo systemctl disable apache2
+
+```
