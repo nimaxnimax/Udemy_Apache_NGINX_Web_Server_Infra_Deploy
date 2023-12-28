@@ -74,7 +74,7 @@ sudo nano /etc/apache2/sites-available/your_domain.conf
 
 Example >> domain1.local
 ```bash
-sudo nano /etc/apache2/sites-available/domain1.local.conf
+sudo vi /etc/apache2/sites-available/domain1.local.conf
 ```
 
 Add in the following configuration block, which is similar to the default, but updated for your new directory and domain name:
