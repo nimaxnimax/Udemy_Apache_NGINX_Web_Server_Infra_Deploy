@@ -27,11 +27,14 @@ Apache is commonly used in conjunction with other software components, such as t
 **********
 Apache Web Server Installation on Ubuntu 22.04 LTS (Desktop/Server) >> PC/VB/VM/Azure/AWS/GCP/... >>
 
+# Update Package Lists
+
 ```bash
-   
-   # Update Package Lists
    sudo apt update -y
-   
+```
+
+```bash
+
    # Install Apache
    sudo apt install apache2 -y
 
