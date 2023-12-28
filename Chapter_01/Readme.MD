@@ -29,62 +29,62 @@ Apache Web Server Installation on Ubuntu 22.04 LTS (Desktop/Server) >> PC/VB/VM/
 
 Update Package Lists
 ```bash
-   sudo apt update -y
+sudo apt update -y
 ```
 
 Install Apache
 ```bash
-   sudo apt install apache2 -y
+sudo apt install apache2 -y
 ```
 
 Start Apache
 After the installation is complete, Apache should start automatically. If it doesn't, you can start it manually with:
 ```bash
-   sudo systemctl start apache2
+sudo systemctl start apache2
 ```
 
 Enable Apache to Start on Boot
 To ensure Apache starts automatically when your system boots up, run:
 ```bash
-   sudo systemctl enable apache2
+sudo systemctl enable apache2
 ```
 
 Check Apache Status
 You can check the status to ensure Apache is running without any issues:
 ```bash
-   sudo systemctl status apache2
+sudo systemctl status apache2
 ```
 
 Adjust Firewall Settings (if needed):
 If you are running a firewall (e.g., UFW), you might need to allow traffic to the Apache service. You can enable the default Apache profile for UFW:
 ```bash
-   sudo ufw allow 'Apache'
+sudo ufw allow 'Apache'
 ```
 
 Allow incoming SSH connections by adding a rule to the UFW configuration:
 ```bash
-   sudo ufw allow ssh
+sudo ufw allow ssh
 ```
 
 If UFW is not installed, you can install it and enable it with:
 ```bash
-   sudo apt install ufw -y
-   sudo ufw enable
+sudo apt install ufw -y
+sudo ufw enable
 ```
 
 After enabling UFW, you may want to check the status:
 ```bash
-   sudo ufw status
+sudo ufw status
 ```
 
 After making changes, reload UFW for the new rules to take effect:
 ```bash
-   sudo ufw reload
+sudo ufw reload
 ```
       
 List the ufw application profiles by running the following:
 ```bash
-   sudo ufw app list
+sudo ufw app list
 ```
 
 Access Apache Default Page
@@ -92,31 +92,31 @@ Open a web browser and navigate to `http://your_server_IP` or `http://localhost`
 You can access the default Apache landing page to confirm that the software is running properly through your IP address. If you do not know your server’s IP address, you can get it a few different ways from the command line.
 Try writing the following at your server’s command prompt:
 ```bash
-   hostname -I
+hostname -I
 ```
 
 Another option is to use the free icanhazip.com tool. This is a website that, when accessed, returns your machine’s public IP address as read from another location on the internet:
 ```bash
-   curl -4 icanhazip.com
+curl -4 icanhazip.com
 ```
 
 To stop your web server, run:
 ```bash
-   sudo systemctl stop apache2
+sudo systemctl stop apache2
 ```
 
 To stop and then start the service again, run:
 ```bash
-   sudo systemctl restart apache2
+sudo systemctl restart apache2
 ```
 
 If you are simply making configuration changes, Apache can often reload without dropping connections. To do this, use the following command:
 ```bash
-   sudo systemctl reload apache2
+sudo systemctl reload apache2
 ```
 
 By default, Apache is configured to start automatically when the server boots. If this is not what you want, disable this behavior by running:
 ```bash
-   sudo systemctl disable apache2
+sudo systemctl disable apache2
 ```
 
