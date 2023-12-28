@@ -30,10 +30,10 @@ Apache Web Server Installation on Ubuntu 22.04 LTS (Desktop/Server) >> PC/VB/VM/
 ```bash
    
    # Update Package Lists
-   sudo apt update
+   sudo apt update -y
    
    # Install Apache
-   sudo apt install apache2
+   sudo apt install apache2 -y
 
    # Start Apache
    # After the installation is complete, Apache should start automatically. If it doesn't, you can start it manually with:
@@ -52,7 +52,7 @@ Apache Web Server Installation on Ubuntu 22.04 LTS (Desktop/Server) >> PC/VB/VM/
    sudo ufw allow 'Apache'
    
    # If UFW is not installed, you can install it and enable it with:
-   sudo apt install ufw
+   sudo apt install ufw -y
    sudo ufw enable
    
    # After enabling UFW, you may want to check the status:
