@@ -94,7 +94,7 @@ Example >> domain1.local
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
     ServerName domain1.local
-    ServerAlias www.domain1.local
+    ServerAlias domain1.local
     DocumentRoot /var/www/domain1.local
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
