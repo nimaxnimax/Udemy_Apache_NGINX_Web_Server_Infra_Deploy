@@ -1,7 +1,7 @@
 ![Alt text](image.png)
 
 
-Apache Web Server - Setting Up Virtual Hosts
+Apache Web Server - Setting Up Virtual Hosts and Configuring Modules
 
 Create the directory for your_domain as follows:
 ```bash
@@ -92,7 +92,7 @@ Add in the following configuration block, which is similar to the default, but u
 Example >> domain1.local
 ```bash
 <VirtualHost *:80>
-    ServerAdmin webmaster@localhost
+    ServerAdmin webmaster@domain1.local
     ServerName domain1.local
     ServerAlias domain1.local
     DocumentRoot /var/www/domain1.local
@@ -173,4 +173,69 @@ tail /var/log/apache2/access.log
 ```bash
 tail /var/log/apache2/error.log
 ```
+
+To list all installed Apache modules on Ubuntu and search for additional modules, you can use the following commands.
+To list the currently loaded Apache modules, you can use the `apachectl` command with the `-M` option:
+```bash
+apachectl -M
+```
+
+Or, you can use the following command with `apache2ctl`:
+```bash
+apache2ctl -M
+```
+This will display a list of loaded modules.
+
+To search for available Apache modules that you can install, you can use the `apt search` command. For example:
+```bash
+apt search libapache2-mod
+```
+This will display a list of available Apache modules. The `libapache2-mod` prefix is commonly used for Apache modules in the package manager.
+
+To install a specific Apache module, you can use the `apt-get install` command.
+```bash
+sudo apt-get install libapache2-mod-mapcache -y
+sudo apt-get install libapache2-mod-php -y
+sudo apt-get install libapache2-mod-php7.4 -y
+```
+
+After installing a new module, you need to enable it using the `a2enmod` command. For example:
+```bash
+sudo a2enmod mapcache
+```
+
+Enable rewrites/redirects using the mod_rewrite module
+This module is used for rewrites (redirects), as the name suggests. You’ll need it if you use WordPress or any other CMS for that matter. To install it, just run:
+```bash
+sudo a2enmod rewrite
+```
+
+Secure your Apache with the ModSecurity module
+ModSecurity is a module used for security, again, as the name suggests. It basically acts as a firewall, and it monitors your traffic. To install it, run the following command:
+```bash
+sudo apt-get install libapache2-mod-security2 -y
+```
+
+If the above command doesn't work, you can try searching for the available ModSecurity package:
+```bash
+sudo apt search libapache2-mod-security
+```
+This will show you a list of available packages related to ModSecurity. Look for the appropriate package and install it using `apt-get`.
+
+After installing the ModSecurity module, you may also need to enable it. On newer versions of Ubuntu and Apache, you can use `a2enmod`:
+```bash
+sudo a2enmod security2
+```
+
+After enabling the module, you may need to restart Apache for the changes to take effect:
+```bash
+sudo systemctl restart apache2
+```
+Please note that the specific module names and commands may vary depending on the version of Apache and the available packages in your Ubuntu release. Always check the documentation or package manager for the most accurate information.
+
+To list the enabled modules on Apache in Ubuntu, you can use the `a2query` command. Specifically, the `-m` option can be used to list the enabled modules. Open a terminal and run the following command:
+```bash
+sudo a2query -m
+```
+This will display a list of currently enabled Apache modules. The output will show the names of the enabled modules.
 

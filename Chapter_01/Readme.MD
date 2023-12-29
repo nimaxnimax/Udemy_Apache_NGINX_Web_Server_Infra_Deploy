@@ -37,6 +37,11 @@ Install Apache
 sudo apt install apache2 -y
 ```
 
+If you want to, you can also install the Apache documentation and some Apache utilities. You’ll need the Apache utilities for some of the modules we’ll install later.
+```bash
+sudo apt-get install apache2-doc apache2-utils -y
+```
+
 Start Apache
 After the installation is complete, Apache should start automatically. If it doesn't, you can start it manually with:
 ```bash
