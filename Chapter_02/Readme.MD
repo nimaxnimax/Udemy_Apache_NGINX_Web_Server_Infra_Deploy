@@ -239,3 +239,42 @@ sudo a2query -m
 ```
 This will display a list of currently enabled Apache modules. The output will show the names of the enabled modules.
 
+Block DDoS attacks using the mod_evasive module
+You can use the mod_evasive module to block and prevent DDoS attacks on your server, though it’s debatable how useful it is in preventing attacks. To install it, use the following command:
+```bash
+sudo apt-get install libapache2-mod-evasive -y
+```
+By default, mod_evasive is disabled, to enable it, edit the following file:
+```bash
+sudo vi /etc/apache2/mods-enabled/evasive.conf
+```
+And uncomment all the lines (remove #) and configure it per your requirements. You can leave everything as-is if you don’t know what to edit.
+And create a log file:
+```bash
+sudo mkdir /var/log/mod_evasive 
+sudo chown -R www-data:www-data /var/log/mod_evasive
+sudo systemctl restart apache2
+```
+
+Example for domain1.local - How to Test and Verify?! >>
+Add domain1.local >> /etc/hosts
+```bash
+sudo vi /etc/hosts
+```
+To verify the response of a website using `curl` on Ubuntu, you can use the following command:
+```bash
+curl -I http://domain1.local
+```
+This command sends a HEAD request to the specified URL (`http://domain1.local` in this case) and displays the headers of the HTTP response. The `-I` option tells `curl` to show only the headers.
+If you want to see the complete HTTP response (including headers and the response body), you can use:
+```bash
+curl http://domain1.local
+```
+Replace `http://domain1.local` with the actual URL you want to test. Make sure that the specified domain is accessible from your machine and that your machine can resolve the domain to the correct IP address.
+If you encounter SSL/TLS-related issues or if the website uses HTTPS, you might need to use the `-k` option with `curl` to ignore SSL certificate verification (not recommended for production use):
+```bash
+curl -kI https://domain1.local
+```
+Remember to replace `https://domain1.local` with the actual HTTPS URL you want to test.
+These `curl` commands can help you inspect the HTTP headers and content returned by the web server for the specified URL.
+
