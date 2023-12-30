@@ -74,6 +74,10 @@ sudo a2ensite yourdomain.com-ssl.conf
 ```
 
 ```bash
+sudo a2ensite domain1.local.ssl.conf
+```
+
+```bash
 sudo a2enmod ssl
 ```
 
