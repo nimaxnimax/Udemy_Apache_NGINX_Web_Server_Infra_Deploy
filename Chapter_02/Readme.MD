@@ -278,4 +278,7 @@ curl -kI https://domain1.local
 Remember to replace `https://domain1.local` with the actual HTTPS URL you want to test.
 These `curl` commands can help you inspect the HTTP headers and content returned by the web server for the specified URL.
 
-Important Note: Hostfile >> Windows >> Location: C:\Windows\System32\drivers\etc >> Add domain1.local with ip address in this file (example)
+Important Note: Hostfile >> Windows >> Location: C:\Windows\System32\drivers\etc >> Add domain1.local with ip address in this file (example) >> Using notepad and run as admin
+
+Important Note: Hostfile >> Linux >> Location /etc/hosts >> Add domain1.local with ip address in this file (example)
+
