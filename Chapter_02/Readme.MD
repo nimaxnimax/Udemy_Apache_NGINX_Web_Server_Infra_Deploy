@@ -282,3 +282,11 @@ Important Note: Hostfile >> Windows >> Location: C:\Windows\System32\drivers\etc
 
 Important Note: Hostfile >> Linux >> Location /etc/hosts >> Add domain1.local with ip address in this file (example)
 
+```bash
+sudo apt install net-tools -y
+```
+
+```bash
+netstat -tupln
+```
+
